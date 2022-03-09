@@ -69,9 +69,9 @@ training_arguments = TrainingArguments(
 ## Also print out the run ID, objective value,
 ## and hyperparameters of your best run.
 trainer = Trainer(
-    model_init,
-    compute_metrics,
-    training_arguments,
+    model_init=model_init,
+    compute_metrics=compute_metrics,
+    args=training_arguments,
     train_dataset=train_data,
     eval_dataset=val_data,
     tokenizer=tokenizer
