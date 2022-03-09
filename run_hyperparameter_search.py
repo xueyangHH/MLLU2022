@@ -6,7 +6,7 @@ Example usage:
 import argparse
 import boolq
 import data_utils
-import finetuning_utils
+from finetuning_utils import model_init, compute_metrics
 import json
 import pandas as pd
 import numpy as np
