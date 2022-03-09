@@ -77,7 +77,7 @@ trainer = Trainer(
     eval_dataset=val_data,
     tokenizer=tokenizer
 )
-run = trainer.hyperparameter_search(hp_space = lambda x: {'learning_rate': tune.uniform(1e-5, 5e-5)}, compute_objective = my_comp_objective, n_trials = 5, backend = 'ray', search_alg = BayesOptSearch())
+run = trainer.hyperparameter_search(hp_space = lambda x: {'learning_rate': tune.uniform(1e-5, 5e-5)}, compute_objective = my_comp_objective, n_trials = 5, backend = 'ray', search_alg = BayesOptSearch(), mode='min')
 print(run.run_id)
 print(run.hyperparameters)
 print(run.objective)
