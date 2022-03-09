@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=roberta_hyperparameter_search
 #SBATCH --open-mode=append
-#SBATCH --output=/home/xh1128/hw3/hw3.out
-#SBATCH --error=/home/xh1128/hw3/hw3.err
+#SBATCH --output=/scratch/xh1128/hw3/hw3.out
+#SBATCH --error=/scratch/xh1128/hw3/hw3.err
 #SBATCH --export=ALL
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
