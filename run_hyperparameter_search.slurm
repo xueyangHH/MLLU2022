@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=roberta_hyperparameter_search
 #SBATCH --open-mode=append
-#SBATCH --output=/scratch/xh1128/hw3/%j_%x.out
-#SBATCH --error=/scratch/xh1128/hw3/%j_%x.err
+#SBATCH --output=/scratch/xh1128/hw3/hw3.out
+#SBATCH --error=/scratch/xh1128/hw3/hw3.err
 #SBATCH --export=ALL
 #SBATCH --account=ds_ga_1012_2022sp
 #SBATCH --partition=n1s8-v100-1
