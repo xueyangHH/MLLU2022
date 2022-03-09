@@ -15,6 +15,9 @@ from sklearn.model_selection import train_test_split
 from transformers import RobertaTokenizerFast, TrainingArguments, Trainer
 from ray.tune.suggest.bayesopt import BayesOptSearch
 
+def my_comp_objective(diction):
+    return diction['eval_loss']
+
 parser = argparse.ArgumentParser(
     description="Run a hyperparameter search for finetuning a RoBERTa model on the BoolQ dataset."
 )
@@ -73,7 +76,7 @@ trainer = Trainer(
     eval_dataset=val_data,
     tokenizer=tokenizer
 )
-run = trainer.hyperparameter_search(hp_space = lambda: {'learning_rate': np.random.uniform(1e-5, 5e-5)}, n_trials = 5, backend = 'ray', search_alg = BayesOptSearch())
+run = trainer.hyperparameter_search(hp_space = lambda: {'learning_rate': np.random.uniform(1e-5, 5e-5)}, compute_objective = my_comp_objective, n_trials = 5, backend = 'ray', search_alg = BayesOptSearch())
 print(run.run_id)
 print(run.hyperparameters)
 print(run.objective)
