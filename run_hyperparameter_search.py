@@ -13,6 +13,7 @@ import numpy as np
 
 from sklearn.model_selection import train_test_split
 from transformers import RobertaTokenizerFast, TrainingArguments, Trainer
+from ray import tune
 from ray.tune.suggest.bayesopt import BayesOptSearch
 
 def my_comp_objective(diction):
